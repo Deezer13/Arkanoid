@@ -28,6 +28,8 @@
 #include "headers/fillerCoordinatesMalloc.h"
 #include "headers/fillerCoordinatesFree.h"
 
+#include "headers/irrKlangWrapper.h"
+
 #define M_PI 3.14159265358979323846
 #define WIDTH 66
 #define HEIGHT 25
@@ -60,6 +62,15 @@ int main()
 {
     srand(time(0));
 
+    void *engine = createSoundEngine();
+    if (!engine)
+    {
+        perror("irrKlang initialization error");
+        exit(EXIT_FAILURE);
+    }
+
+    playSound(engine, "sounds/sound.wav", 1);
+    
     TRacket racket;
     TBall ball;
 
