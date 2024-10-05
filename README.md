@@ -26,8 +26,7 @@ Arkanoid is a classic arcade-style game where the objective is to complete level
 2. Compile the program using GCC:
 
    ```bash
-   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(pwd)/bin
-   g++ -o arkanoid arkanoid.c irrKlangWrapper.cpp -Lbin -lIrrKlang
+   g++ -o arkanoid arkanoid.c irrKlangWrapper.cpp -Lbin -Wl,-rpath="$(pwd)"/bin -lIrrKlang
 3. Run the game:
 
    ```bash
